@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/nn.min.js"></script>
+<script>
+  /* global nn */
+
+  function tenPrint() {
+    const hue = nn.random(180, 280)
+    const clr = nn.hsl(hue, 100, 50)
+    const chars = '←→↑↓↖↗↙↘'
+    let pattern = ''
+    nn.times(1002, () => pattern += nn.random(chars))
+    nn.get('body')
+      .content(pattern)
+      .css('background', clr)
+  }
+
+  nn.on('load', tenPrint)
+  nn.on('click', tenPrint)
+</script>
